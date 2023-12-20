@@ -1,122 +1,196 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-body > header {
-    background-color: #2f3640;
+header,
+section h2,
+section h3,
+form button {
+    font-family: 'Bungee', cursive;
+    font-weight: normal;
+}
+
+body, input, textarea {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
     padding: 16px 0;
-    color: #f5f6fa;
+    background-color: black;
+    color: gray;
 }
 
-header .container {
+header nav li {
+    display: inline;
+    margin-left: 16px;
+    font-size: 18px;
+}
+
+header nav li a {
+    color: lightgray;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header .container,
+section .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-header li {
+.product-list img {
+    height: 100px;
+    margin-top: 20px;
+}
+
+.product-list li {
     display: inline;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    margin-left: 16px;
+    margin-right: 24px;
 }
 
-header li a {
-    color: #f5f6fa;
-    text-decoration: none;
+section .container {
+    align-items: flex-start;
 }
 
-.container {
-    width: 1366px;
-    margin: 0 auto;
-}
-
-.articles {
+header img {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    height: 100px;
 }
 
-.articles article img {
-    /* height: 180px; */
-    width: 100%;
-}
-
-.articles article {
-    width: 30%;
+.products {
+    margin-right: 32px;
+    height: 500px;
+    display: flex;
 }
 
 section {
-    padding: 16px 0;
-}
-
-section h2,
-.articles article {
-    margin-bottom: 16px;
-}
-
-.articles article h3 {
-    margin-top: 8px;
-    margin-bottom: 8px;
-}
-
-.articles article a {
-    background-color: blue;
-    color: #fff;
-    padding: 8px;
-    display: inline-block;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 8px;
-}
-
-.articles article a:hover {
-    text-decoration: underline;
-}
-
-.articles article p,
-.articles article a {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.articles article h3 {
-    font-size: 24px;
+    padding: 24px 0;
 }
 
 section h2 {
-    font-size: 32px;
+    margin-bottom: 16px;
 }
 
-#sports {
-    background-color: rgba(0, 255, 0, 0.1);
+section p {
+    margin-bottom: 8px;
 }
 
-#sports .articles article a {
-    background-color: #009432;
+section h3 {
+    font-weight: bold;
+    margin-top: 40px;
+    font-size: 20px;
 }
 
-#economy {
-    background-color: #f8f59f;
+section h6 {
+    margin-top: 30px;
+    color: lightgray;
+    text-decoration: underline;
 }
 
-#economy .articles article a {
-    background-color: #ff9f1a;
+.quebra-linha {
+    background-color: black;
+    padding: 20px 0;
 }
 
-#entertainment {
-    background-color: aqua;
+.banner-list img {
+    height: 150px;
 }
 
-#entertainment .articles article a {
-    background-color: rgb(255, 8, 0);
+.banner-list li {
+    display: inline;
+    margin-right: 150px;
+    margin-left: 150px;
+    align-items: center;
 }
 
-#tecnology {
-    background-color: rgb(125, 154, 180);
+#contact .container {
+    display: block;
 }
 
-#tecnology .articles article a {
-    background-color: #2f3640;
+.contact-methods {
+    display: flex;
+    justify-content: space-between;
+}
+
+form input,
+form textarea,
+form button {
+    display: block;
+    width: 320px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+form textarea {
+    resize: none;
+    height: 180px;
+}
+
+form button {
+    background-color: black;
+    color: gray;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: rgb(43, 39, 39);
+}
+
+input:focus, textarea:focus {
+    outline-color: black;
+}
+
+.social-links img {
+    height: 24px;
+}
+
+.social-links li {
+    display: inline;
+    margin-right: 12px;
+    margin-left: 18px;
+}
+
+.social-links li a {
+    text-decoration: none;
+}
+
+.wpp-link {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #01e675;
+    color: #fff;
+    border-radius: 60px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 2px #c0bdbd;
+    z-index: 1000;
+}
+
+.fa-whatsapp {
+    margin-top: 16px;
+}
+
+.wpp-link:hover {
+    background-color: white;
+    color: #01e675;
+    font-weight: 900;
+    box-shadow: 2px 2px 20px #5fe690;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 16px 0;
 }
