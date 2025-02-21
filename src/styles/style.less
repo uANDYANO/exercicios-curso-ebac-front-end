@@ -1,0 +1,214 @@
+// Cores
+@cor-principal: #333;
+@cor-fundo: #222f3e;
+@cor-borda: #999;
+@cor-celula-fundo: #fff;
+@cor-celula-hover: #ddd;
+@cor-texto: #555;
+@cor-vitoria: #4CAF50;
+@cor-vitoria-hover: #3e8e41;
+@cor-x: blue;
+@cor-o: red;
+@cor-box-menu: #1dd1a1;
+@cor-botao: #01a3a4;
+
+// Fontes
+@fonte-principal: 'Press Start 2P', sans-serif;
+@tamanho-fonte-principal: 16px;
+@fonte-botoes: 'Roboto', sans-serif;
+
+// Tamanhos
+@largura-tabuleiro: 330px;
+@tamanho-celula: 100px;
+@espaco-celula: 10px;
+
+// Responsividade
+@largura-tela-pequena: 600px;
+
+/* Estilos Gerais */
+body {
+    font-family: @fonte-principal;
+    text-align: center;
+    background-color: @cor-fundo;
+    margin: 0;
+    padding: 20px;
+}
+
+h1,
+h2 {
+    color: @cor-principal;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: @cor-botao;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: @fonte-botoes;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    &:hover {
+        background-color: #00d2d3;
+    }
+}
+
+/* Estilos das Telas */
+.tela {
+    display: none;
+    /* Oculta todas as telas por padrão */
+    padding: 20px;
+    border: 1px solid @cor-borda;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 20px auto;
+    transition: opacity 0.5s ease-in-out;
+    background-color: @cor-box-menu;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    &.ativa {
+        display: block;
+        /* Exibe a tela ativa */
+        opacity: 1;
+        /* Garante a opacidade total */
+    }
+}
+
+/* Estilos da Tela de Jogo */
+.player-info {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.player-info label {
+    margin-right: 5px;
+}
+
+.player-info input[type="text"] {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 5px;
+    width: 120px;
+    box-sizing: border-box;
+    border-bottom: 6px solid @cor-borda;
+    background-color: transparent;
+}
+
+.tabuleiro {
+    display: grid;
+    grid-template-columns: repeat(3, @tamanho-celula);
+    grid-gap: @espaco-celula;
+    margin: 20px auto;
+    width: @largura-tabuleiro;
+}
+
+.celula {
+    width: @tamanho-celula;
+    height: @tamanho-celula;
+    border: 2px solid @cor-borda;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+    background-color: @cor-celula-fundo;
+    transition: background-color 0.3s ease;
+    color: @cor-texto;
+    border-radius: 5px;
+}
+
+.celula:hover {
+    background-color: @cor-celula-hover;
+}
+
+.celula.x {
+    color: @cor-x;
+}
+
+.celula.o {
+    color: @cor-o;
+}
+
+/* Adiciona o estilo para a animação de vitória */
+.celula.vencedora {
+    animation: pulse 1s infinite alternate, winner-shine 2s forwards;
+    /* Adiciona o brilho */
+    position: relative;
+    /* Necessário para o efeito de brilho */
+    overflow: hidden;
+    /* Esconde o brilho que ultrapassa a célula */
+}
+
+@keyframes pulse {
+    from {
+        background-color: @cor-vitoria;
+        color: white;
+    }
+
+    to {
+        background-color: @cor-vitoria-hover;
+        color: #eee;
+    }
+}
+
+/* Efeito de brilho */
+@keyframes winner-shine {
+    0% {
+        box-shadow: none;
+    }
+
+    100% {
+        box-shadow: 0 0 20px @cor-vitoria;
+        /* Brilho mais forte */
+    }
+}
+
+#mensagem {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+/* Estilos para o Menu Principal */
+#menu-principal {
+    display: flex;
+    background-color: @cor-box-menu;
+    flex-direction: column; /* Organiza os botões verticalmente */
+    align-items: center; /* Centraliza os botões horizontalmente */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#menu-principal button {
+    margin-bottom: 10px; /* Adiciona espaço entre os botões */
+    width: 200px; /* Define uma largura para os botões */
+}
+
+/* Media query para telas menores */
+@media (max-width: @largura-tela-pequena) {
+    @tamanho-celula-pequena: 80px;
+    @largura-tabuleiro-pequena: (@tamanho-celula-pequena * 3) + (@espaco-celula * 2);
+
+    .tabuleiro {
+        grid-template-columns: repeat(3, @tamanho-celula-pequena);
+        width: @largura-tabuleiro-pequena;
+    }
+
+    .celula {
+        width: @tamanho-celula-pequena;
+        height: @tamanho-celula-pequena;
+        font-size: 2em;
+    }
+}

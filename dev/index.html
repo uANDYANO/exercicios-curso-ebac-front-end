@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+
+        <section id="menu-principal" class="tela ativa">
+            <h1>Jogo da Velha</h1>
+            <button id="btn-jogar-local">Jogar Local</button>
+            <button id="btn-jogar-pc">Jogar vs. Computador (Em Breve)</button>
+        </section>
+
+        <section id="tela-nomes" class="tela">
+            <h2>Digite os Nomes dos Jogadores</h2>
+            <div class="player-info">
+                <label for="jogador1">Jogador 1 (X):</label>
+                <input type="text" id="jogador1" value="Jogador 1">
+            </div>
+            <div class="player-info">
+                <label for="jogador2">Jogador 2 (O):</label>
+                <input type="text" id="jogador2" value="Jogador 2">
+            </div>
+            <button id="btn-iniciar-jogo">Iniciar Jogo</button>
+        </section>
+
+        <section id="tela-jogo" class="tela">
+            <h1>Jogo da Velha</h1>
+            <h3>Placar:</h3>
+            <div class="player-info">
+                <span id="jogador1-nome">Jogador 1</span>: <span id="jogador1-placar">0</span>
+            </div>
+            <div class="player-info">
+                <span id="jogador2-nome">Jogador 2</span>: <span id="jogador2-placar">0</span>
+            </div>
+            <div class="tabuleiro">
+                <div class="celula" data-pos="0"></div>
+                <div class="celula" data-pos="1"></div>
+                <div class="celula" data-pos="2"></div>
+                <div class="celula" data-pos="3"></div>
+                <div class="celula" data-pos="4"></div>
+                <div class="celula" data-pos="5"></div>
+                <div class="celula" data-pos="6"></div>
+                <div class="celula" data-pos="7"></div>
+                <div class="celula" data-pos="8"></div>
+            </div>
+            <p id="mensagem"></p>
+            <button id="resetButton">Novo Jogo</button>
+            <button id="btn-voltar-menu">Voltar ao Menu Principal</button>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="../src/scripts/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+/* Estilos Gerais */
+body {
+  font-family: 'Press Start 2P', sans-serif;
+  text-align: center;
+  background-color: #222f3e;
+  margin: 0;
+  padding: 20px;
+}
+h1,
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+button {
+  background-color: #01a3a4;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+button:hover {
+  background-color: #00d2d3;
+}
+/* Estilos das Telas */
+.tela {
+  display: none;
+  /* Oculta todas as telas por padrão */
+  padding: 20px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  max-width: 600px;
+  margin: 20px auto;
+  transition: opacity 0.5s ease-in-out;
+  background-color: #1dd1a1;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.tela.ativa {
+  display: block;
+  /* Exibe a tela ativa */
+  opacity: 1;
+  /* Garante a opacidade total */
+}
+/* Estilos da Tela de Jogo */
+.player-info {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.player-info label {
+  margin-right: 5px;
+}
+.player-info input[type="text"] {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 5px;
+  width: 120px;
+  box-sizing: border-box;
+  border-bottom: 6px solid #999;
+  background-color: transparent;
+}
+.tabuleiro {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  margin: 20px auto;
+  width: 330px;
+}
+.celula {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  cursor: pointer;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+  color: #555;
+  border-radius: 5px;
+}
+.celula:hover {
+  background-color: #ddd;
+}
+.celula.x {
+  color: blue;
+}
+.celula.o {
+  color: red;
+}
+/* Adiciona o estilo para a animação de vitória */
+.celula.vencedora {
+  animation: pulse 1s infinite alternate, winner-shine 2s forwards;
+  /* Adiciona o brilho */
+  position: relative;
+  /* Necessário para o efeito de brilho */
+  overflow: hidden;
+  /* Esconde o brilho que ultrapassa a célula */
+}
+@keyframes pulse {
+  from {
+    background-color: #4CAF50;
+    color: white;
+  }
+  to {
+    background-color: #3e8e41;
+    color: #eee;
+  }
+}
+/* Efeito de brilho */
+@keyframes winner-shine {
+  0% {
+    box-shadow: none;
+  }
+  100% {
+    box-shadow: 0 0 20px #4CAF50;
+    /* Brilho mais forte */
+  }
+}
+#mensagem {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+/* Estilos para o Menu Principal */
+#menu-principal {
+  display: flex;
+  background-color: #1dd1a1;
+  flex-direction: column;
+  /* Organiza os botões verticalmente */
+  align-items: center;
+  /* Centraliza os botões horizontalmente */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#menu-principal button {
+  margin-bottom: 10px;
+  /* Adiciona espaço entre os botões */
+  width: 200px;
+  /* Define uma largura para os botões */
+}
+/* Media query para telas menores */
+@media (max-width: 600px) {
+  .tabuleiro {
+    grid-template-columns: repeat(3, 80px);
+    width: 260px;
+  }
+  .celula {
+    width: 80px;
+    height: 80px;
+    font-size: 2em;
+  }
+}
